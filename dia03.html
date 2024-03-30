@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>7DaysOfCode - JS</title>
+</head>
+<body>
+    <h1>#7DaysOfCode - Lógica JS 2/7</h1>
+    <h2>Tema: Flujo de decisiones</h2>
+    <script>
+        //¡Hoy desarrollarás un ejemplo como este con Javascript !
+        
+        /*Quiero que trabajes con estructuras de flujo de control. Esta complicada forma de hablar simplemente significa que, al igual que en los juegos,  la historia que construyes debe adaptarse a las respuestas de quien juega.*/
+        
+        /*Para hacer esto, necesitará algunas estructuras capaces de cambiar el flujo de la aplicación, como  for, while, if y else . Todos ellos pueden lograr este objetivo, dada una determinada condición.*/
+        
+        /*Los  if  y  else , que ya os mostré estos últimos días, son capaces de crear ramas dentro de la aplicación para que se pueda realizar una u otra acción, dependiendo de la condición dada.*/
+        
+        /*Los bucles (como for y while ) son capaces de convertir una tarea repetitiva en unas pocas líneas de código, sin importar cuántas veces necesites repetir esa tarea.*/
+        
+        
+        // Tu desafío hoy es crear los posibles destinos de un juego, en el que el usuario pueda elegir:
+        // 1. Si ir al área Front-End o ir al área Back-End.
+        // 2. Si estás en el área  Front-End , si quieres  aprender React  o  aprender Vue . Si estás en el área  Back-End , puedes  aprender C#  o  aprender Java.
+        const area = prompt("¿En qué área te gustaría especializarte? (1. Front-End o 2. Back-End)");
+        
+        if (area === "1") {
+            // Mostrar opciones para aprender React o Vue.
+            const frontEnd = prompt("¿Quieres aprender React o Vue?");
+            if (frontEnd === "React") {
+                // Mostrar mensaje de especialización en React.
+                alert("¡Excelente elección! React es una de las tecnologías más populares en el mercado.");
+        
+            } else if (frontEnd === "Vue") {
+                // Mostrar mensaje de especialización en Vue.
+                alert("¡Gran elección! Vue es una tecnología muy versátil y fácil de aprender.");
+            }
+            
+        } else if (area === "2") {
+            // Mostrar opciones para aprender C# o Java
+            const backEnd = prompt("¿Quieres aprender C# o Java?");
+            if (backEnd === "C#") {
+                // Mostrar mensaje de especialización en C#.
+                alert("¡Fantástico! C# es un lenguaje muy poderoso y ampliamente utilizado en el desarrollo de software.");
+        
+            } else if (backEnd === "Java") {
+                // Mostrar mensaje de especialización en Java.
+                alert("¡Increíble elección! Java es un lenguaje muy popular y versátil en el mundo de la programación.");
+            }
+        }
+        // 3. Luego, independientemente de las elecciones anteriores, el usuario podrá elegir entre  seguir especializándose en el área elegida o seguir desarrollándose hasta convertirse en Fullstack . Debes mostrar un mensaje específico en la pantalla para cada elección. 
+        const decision = prompt("¿Quieres seguir especializándote en el área elegida o seguir desarrollándote hasta convertirte en Fullstack? (1. Especializarse o 2. Fullstack)");
+        if (decision === "1") {
+            // Mostrar mensaje de especialización en el área elegida.
+            alert("¡Excelente elección! Continúa especializándote en el área que elegiste.");
+            
+        } else if (decision === "2") {
+            // Mostrar mensaje de especialización en Fullstack.
+            alert("¡Fantástico! Continúa desarrollándote hasta convertirte en un desarrollador Fullstack.");
+        }
+        // 4. Finalmente, pregunte  en qué tecnologías le gustaría especializarse  o aprender a la persona. Aquí la persona puede responder N tecnologías, una a la vez. Entonces, mientras siga respondiendo bien a la pregunta:  "¿Hay alguna otra tecnología que le gustaría aprender?" , continúe presentándole el Prompt, para que pueda completar el nombre de la tecnología en cuestión. Y, poco después, presentar un mensaje comentando algo sobre el idioma insertado. Lo importante es que la persona que juega siempre puede  elegir qué decisión tomar para poder aprender  y desarrollarse en el área de la programación. Además, también es fundamental que, al final del juego, pueda  introducir tantas tecnologías como quiera en la lista de aprendizaje.
+        let tecnologias = [];
+        let respuesta = prompt("¿En qué tecnología te gustaría especializarte o aprender?");
+        while (respuesta) {
+            tecnologias.push(respuesta);
+            respuesta = prompt("¿Hay alguna otra tecnología que te gustaría aprender?");
+            if (respuesta === null) {
+                break;
+            }
+        }
+        // 5. Al final, muestre un mensaje en la pantalla con todas las decisiones tomadas por la persona que jugó.
+        alert(`¡Excelente elección! Has decidido aprender las siguientes tecnologías: ${tecnologias.join(", ")}.`);
+    </script>
+</body>
+</html>
+

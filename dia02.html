@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>7DaysOfCode - JS</title>
+</head>
+<body>
+    <h1>#7DaysOfCode - Lógica JS 2/7</h1>
+    <h2>Tema: Variables</h2>
+    <script>
+// Desarrollar un programa que simule uno de estos sitios web . Debe pedirle al usuario que responda 3 preguntas :
+
+// - ¿Cual es tu nombre?
+// - ¿Cuántos años tiene usted?
+// - ¿Qué lenguaje de programación estás estudiando?
+
+// A medida que se hacen preguntas, la persona que utiliza el programa debe responder cada una.
+
+// Al finalizar, el sistema mostrará el mensaje :
+
+// "¡Hola [nombre], tienes [edad] años y ya estás aprendiendo [idioma]!"
+
+// Tenga en cuenta que cada dato entre [ ] es una de las respuestas dadas por la persona.
+
+let nombre = prompt("¿Cual es tu nombre?");
+let edad = prompt("¿Cuántos años tienes?");
+let idioma = prompt("¿Qué lenguaje de programación estás estudiando?");
+
+alert(`¡Hola ${nombre}, tienes ${edad} años y ya estás aprendiendo ${idioma}!`);
+
+// ¡Hola Wilmer, tienes 35 años y ya estás aprendiendo JavaScript!
+
+// ******* EXERCÍCIO OPCIONAL *******
+
+/* Si quieres profundizar más en el tema de hoy, tengo un ejercicio más para ti.
+
+Pero es 100% opcional .
+
+Complementarás el código para que, luego de mostrar el mensaje anterior, el programa te pregunte: ¿
+
+Te gusta estudiar [idioma]? Responde con el  número 1  para  SÍ  o  2  para  NO .
+
+Y luego, dependiendo de la respuesta, debería  mostrar uno de los siguientes mensajes :
+
+1 > ¡Muy bien! Sigue estudiando y tendrás mucho éxito.
+2 > Ahh que pena... ¿Has probado a aprender otros idiomas? */
+let respuesta = prompt(`¿Te gusta estudiar ${idioma}? Responde con el número 1 para SÍ o 2 para NO`);
+if (respuesta === '1') {
+    alert('¡Muy bien! Sigue estudiando y tendrás mucho éxito.');
+} else if (respuesta === '2') {
+    alert('Ahh que pena... ¿Has probado a aprender otros idiomas?');
+}
+
+    </script>
+</body>
+</html>
