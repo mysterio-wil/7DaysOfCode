@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <title>7DaysOfCode - JS</title>
+    </head>
+    <body>
+        <h1>#7DaysOfCode - Lógica JS 4/7</h1>
+        <h2>Tema: Más bucles y aleatorización</h2>
+        <script>
+            /*¿Alguna vez has intentado adivinar el número en el que estaba pensando tu amigo? Hoy volverás a tu infancia y harás exactamente eso. ¡Pero ahora  el juego será contra la propia computadora !*/
+
+// Debes crear un programa que  comience con un valor específico predefinido entre 0 y 10  para el número que vas a adivinar (7, por ejemplo).
+// Predefined number to guess
+let maximo = 10;
+let minimo = 0;
+
+let numeroParaAdivinar = Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
+
+// Luego, el programa te preguntará qué valor quieres adivinar y, si aciertas,  te felicitará . Si cometes un error, te dará  2 intentos más.
+let adivinanzaDelUsuar = prompt('Adivina el número entre 0 y 10');
+
+if (adivinanzaDelUsuar == numeroParaAdivinar) {
+    alert('Felicidades, has acertado el número');
+}
+
+else {
+    alert('Has fallado, tienes 2 intentos más');
+    adivinanzaDelUsuar = prompt('Adivina el número entre 0 y 10');
+    if (adivinanzaDelUsuar == numeroParaAdivinar) {
+        alert('Felicidades, has acertado el número');
+    } else {
+        alert('Has fallado, tienes 1 intento más');
+        numeroParaAdivinar = prompt('Adivina el número entre 0 y 10');
+        if (adivinanzaDelUsuar == numeroParaAdivinar) {
+            alert('Felicidades, has acertado el número');
+
+        } else {
+// Al final, si no lo haces bien una vez, imprimirá  cuál era el número inicial .
+            alert('Has fallado, el número era ' + adivinanzaDelUsuar);
+        }
+    }
+}
+
+//** Una vez que el programa esté funcionando, intente usar un número aleatorio en lugar de un número predefinido.
+
+        </script>
+    </body>
+</html>
