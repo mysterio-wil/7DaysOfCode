@@ -1,0 +1,72 @@
+<!--Para el ejercicio de hoy: ¿alguna vez te has preguntado cómo funciona una calculadora?
+
+Te pide que introduzcas un número, luego seleccionas un tipo de operación, otro número, ¡y ella hace el cálculo por ti para mostrarte el resultado! Increíble, ¿verdad?
+
+En este último desafío, mi propuesta para ti es: crea tu propia calculadora, pero con un detalle muy importante: cada operación deberá ser una función diferente en tu código.
+
+Primero, la persona deberá elegir una opción de operación impresa por el programa en la pantalla.
+
+Luego, deberá introducir los dos valores que desea utilizar, y el programa imprimirá el resultado de la operación en cuestión.
+
+Las opciones disponibles deberán ser: suma, resta, multiplicación, división, y salir. En esta última, el programa deberá dejar de ejecutarse, mostrando un mensaje "Hasta la próxima".
+
+CONSEJO
+Cada operación deberá tener una función diferente en tu código, que recibirá los valores introducidos como parámetros y retornará con el resultado de la operación.
+
+No olvides usar estructuras de repetición para hacer que la calculadora imprima la elección de operación hasta que la persona desee detener el programa.
+
+Recuerda también que, además del if y else, también tenemos el switch, muy interesante de utilizar en casos como este, de múltiple elección.
+
+Personaliza tu calculadora de la manera que consideres más divertida, y no olvides compartirla en tu GitHub y en tus redes sociales con el hashtag #7DaysOfCode, y también con #feedback7DoC en caso de que necesites alguna ayuda.-->
+
+<script>
+    // CALCULADORA
+    function suma(a, b) {
+        return a + b;
+    }
+
+    function resta(a, b) {
+        return a - b;
+    }
+
+    function multiplicacion(a, b) {
+        return a * b;
+    }
+
+    function division(a, b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            return "Error: La división por cero no está permitida.";
+        }
+    }
+
+    function calculadora() {
+        
+        let operacion = prompt("Por favor ingresa la operación (suma, resta, multiplicacion, division, salir):");
+        while (operacion != "salir") {
+            let num1 = parseFloat(prompt("Ingresa el primer número:"));
+            let num2 = parseFloat(prompt("Ingresa el segundo número:"));
+            switch (operacion) {
+                case "suma":
+                    alert("El resultado es: " + suma(num1, num2));
+                    break;
+                case "resta":
+                    alert("El resultado es: " + resta(num1, num2));
+                    break;
+                case "multiplicacion":
+                    alert("El resultado es: " + multiplicacion(num1, num2));
+                    break;
+                case "division":
+                    alert("El resultado es: " + division(num1, num2));
+                    break;
+                default:
+                    alert("Operación inválida. Por favor intenta de nuevo.");
+            }
+            operacion = prompt("Por favor ingresa la operación (suma, resta, multiplicacion, division, salir):");
+        }
+        alert("Hasta la próxima");
+    }
+
+    calculadora();
+</script>
