@@ -1,0 +1,133 @@
+<script>
+/*¿Sabes cuando vas al supermercado con una lista de compras y terminas yendo y viniendo por los mismos pasillos hasta completar la lista?
+
+Necesitas una manzana y ve al área de frutas. El siguiente elemento es la leche y pasas a los productos lácteos. Pero luego anotaste la pera y debes volver al área de la fruta nuevamente.
+
+Después de resolver el desafío de hoy, ¡definitivamente no volverás a hacer esto !*/
+
+// Al igual que nuestra lista de compras,  es muy común que los programas trabajen con listas  de cadenas, números y objetos.
+
+// Piense en todos los catálogos de comercio electrónico que haya visto, la lista de eventos en su Calendario de Google o incluso en su bandeja de entrada de correo electrónico. Todos estos sitios utilizan  listas para mostrar información de una  manera sencilla y fácil de entender.
+
+// Además, puedes aprovechar las listas para crear filtros, ordenar y otras funciones muy útiles.
+
+// En este punto, es posible que ya te hayas dado cuenta de que trabajar con estas colecciones es algo que necesitarás dominar, ¿verdad?
+
+// Así que hoy, para facilitar tu viaje al supermercado, deberías crear un programa Javascript que te preguntará  si quieres añadir un alimento a tu lista de la compra , y deberías poder responder con  sí  o  no .
+// Luego te preguntará  qué alimento quieres ingresar , y deberás ingresar su nombre, por ejemplo  papa .
+
+// Después deberá preguntar  en qué categoría encaja ese alimento , con algunas opciones predefinidas, como frutas, lácteos, congelados, dulces y todo lo que le parezca interesante. De esta manera, puedes separar todo en su grupo adecuado.
+
+// Finalmente, si ya no quieres añadir nada a la lista de la compra y respondes que  no  a la primera pregunta, te mostrará  una lista con todos los artículos agrupados , de la siguiente manera:
+
+// Si añades a tu lista: plátano, leche en polvo, tomate, leches vegetales, chicles, caramelos de osito, manzana, uva, aguacate y leche de vaca.
+
+// El programa debe imprimir, por ejemplo:
+
+/*Lista de compras:
+    Frutas: plátano, tomate, manzana, uva, aguacate
+    Productos lácteos: leche vegetal, leche de vaca, leche en polvo
+    Congelados:
+    Dulces: chicles y caramelos de osito*/
+
+let listaDeCompras = {
+    frutas: [],
+    lacteos: [],
+    congelados: [],
+    dulces: []
+};
+
+let agregarMas = true;
+
+while (agregarMas) {
+    let agregarAlimento = prompt("¿Quieres añadir un alimento a tu lista de la compra? (si/no)");
+    
+    
+    if (agregarAlimento.toLowerCase() === "si") {
+        let alimento = prompt("¿Qué alimento quieres ingresar?");
+        let categoria = prompt("¿En qué categoría encaja ese alimento? (frutas/lácteos/congelados/dulces)");
+
+        switch (categoria.toLowerCase()) {
+            case "frutas":
+                listaDeCompras.frutas.push(alimento);
+                break;
+            case "lácteos":
+                listaDeCompras.lacteos.push(alimento);
+                break;
+            case "congelados":
+                listaDeCompras.congelados.push(alimento);
+                break;
+            case "dulces":
+                listaDeCompras.dulces.push(alimento);
+                break;
+            default:
+                alert("Categoría no reconocida. Por favor, inténtalo de nuevo.");
+                break;
+        }
+    } else if (agregarAlimento.toLowerCase() === "no") {
+        agregarMas = false;
+    } else {
+        alert("Respuesta no reconocida. Por favor, responde con 'si' o 'no'.");
+    }
+
+    let eliminarAlimento = prompt("¿Quieres eliminar un alimento de tu lista de la compra? (si/no)");
+    if (eliminarAlimento.toLowerCase() === "si") {
+        if (listaDeCompras.frutas.length === 0 && listaDeCompras.lacteos.length === 0 && listaDeCompras.congelados.length === 0 && listaDeCompras.dulces.length === 0) {
+            alert("¡No hay artículos en la lista de la compra para eliminar!");
+            continue;
+        }
+
+        alert("¡Asegúrate de que el alimento esté escrito correctamente!");
+        alert("Tu lista de la compra actual es:");
+        let mensaje = "Lista de compras:\n";
+        mensaje += "Frutas: " + listaDeCompras.frutas.join(", ") + "\n";
+        mensaje += "Productos lácteos: " + listaDeCompras.lacteos.join(", ") + "\n";
+        mensaje += "Congelados: " + listaDeCompras.congelados.join(", ") + "\n";
+        mensaje += "Dulces: " + listaDeCompras.dulces.join(", ");
+        alert(mensaje);
+
+        let categoria = prompt("¿En qué categoría encaja ese alimento? (frutas/lácteos/congelados/dulces)");
+        let alimento = prompt("¿Qué alimento quieres eliminar?");
+        lista = listaDeCompras[categoria];
+        //alert(lista);
+        if (lista.includes(alimento)) {
+            lista.splice(lista.indexOf(alimento), 1);
+            alert(`¡El artículo ${alimento} ha sido eliminado con éxito de la lista!`);
+
+        }
+        else if (!lista.includes(alimento)) {
+            alert("¡El artículo no se pudo encontrar en la lista!");
+        }
+
+    } else if (eliminarAlimento.toLowerCase() === "no") {
+        // alert("¡Espero que hayas encontrado todo lo que necesitabas!");
+    } else {
+        alert("Respuesta no reconocida. Por favor, responde con 'si' o 'no'.");
+    }
+
+}
+
+let mensaje = "Lista de compras:\n";
+mensaje += "Frutas: " + listaDeCompras.frutas.join(", ") + "\n";
+mensaje += "Productos lácteos: " + listaDeCompras.lacteos.join(", ") + "\n";
+mensaje += "Congelados: " + listaDeCompras.congelados.join(", ") + "\n";
+mensaje += "Dulces: " + listaDeCompras.dulces.join(", ");
+alert(mensaje);
+
+// Debes crear la opción para  eliminar un artículo de la lista , la cual se mostrará junto a la pregunta “ ¿quieres agregar un alimento a la lista de compras ”?
+
+
+
+
+// A partir de ahí, si la persona elige esta opción, el programa imprimirá  los elementos presentes en la lista actual , y la persona deberá  escribir cuáles desea eliminar .
+
+// Después de eso, el programa  eliminará el elemento de la lista e imprimirá la confirmación de que el elemento ya no está allí .
+
+// Finalmente se volverá al ciclo inicial de preguntas.
+
+// Si al eliminar el elemento no se encuentra en la lista, deberá mostrar un mensaje notificándolo.
+
+// Por ejemplo: “¡ El artículo no se pudo encontrar en la lista! Recuerda que la opción de eliminar un artículo sólo debe estar disponible cuando  exista al menos un artículo dentro de la lista de compras.
+
+
+</script>
